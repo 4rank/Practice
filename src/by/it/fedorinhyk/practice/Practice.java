@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Practice {
     public static void main(String[] args) throws InterruptedException {
-        System.out.println("Веди цифру от 0 до 5!");
+        System.out.println("Введи цифру от 0 до 5!");
         Scanner sc = new Scanner(System.in);
         int a=sc.nextInt();
         int answer= (int) (0+Math.random()*5);
