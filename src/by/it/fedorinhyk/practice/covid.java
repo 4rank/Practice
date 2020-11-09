@@ -1,14 +1,16 @@
 package by.it.fedorinhyk.practice;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.util.ArrayList;
 
 public class covid {
     public static void main(String[] args) throws InterruptedException {
-        for (int i = 8; i <31 ; i++) {
+        ArrayList<Integer> total = new ArrayList<>();
+        for (int i = 9; i < 31; i++) {
             int des = 950 + (int) (Math.random() * 49);
             int death = 1 + (int) (Math.random() * 4);
-            System.out.printf("Заболели:%s Умерли:%s %2d Ноября", des, death, i);
+            int sum= (int) total.stream().mapToDouble(a->a).sum();
+            total.add(des);
+            System.out.printf(" %2d Ноября- Заболели:%s Умерли:%s Всего болеет:%s", i, des, death,sum);
             System.out.println(" ");
             Thread.sleep(2000);
         }
