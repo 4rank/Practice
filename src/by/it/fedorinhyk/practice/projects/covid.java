@@ -1,4 +1,4 @@
-package by.it.fedorinhyk.practice;
+package by.it.fedorinhyk.practice.projects;
 
 import java.util.ArrayList;
 
