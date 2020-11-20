@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Practice2 {
     public static void main(String[] args) throws InterruptedException {
-        Date mom=new Date();
+        Date mom;
         Calendar time = Calendar.getInstance();
         mom=time.getTime();
         System.out.println("Hi!!!");
@@ -28,7 +28,7 @@ public class Practice2 {
             Thread.sleep(1000);
             System.out.println("You're so lucky!");
         }
-        else if (a != answer && a >= 0 && a <= 5) {
+        else if (a >= 0 && a <= 5) {
             Thread.sleep(1000);
             System.out.println("Wrong!!!");
             Thread.sleep(1500);

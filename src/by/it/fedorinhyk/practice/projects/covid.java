@@ -1,22 +1,38 @@
 package by.it.fedorinhyk.practice.projects;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class covid {
     public static void main(String[] args) throws InterruptedException {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Статистика covid-19 для минздрава на 30 дней.");
+        Thread.sleep(1000);
+        System.out.println("Введите число заболевших и умерших."+"\n"+"На данный момент заболело:");
+        int bol=sc.nextInt();
+        System.out.println("На данный момент умерло:");
+        int dead=sc.nextInt();
         ArrayList<Integer> total = new ArrayList<>();
-        final ArrayList<Integer> totalded = new ArrayList<>();
-        for (int i = 9; i < 31; i++) {
-            int des = 950 + (int) (Math.random() * 49);
-            int death = 1 + (int) (Math.random() * 4);
+        Calendar time=Calendar.getInstance();
+        Locale rus=new Locale("ru","RU");
+        SimpleDateFormat date = new  SimpleDateFormat("dd MMMM", rus);
+        final ArrayList<Integer> totalDead = new ArrayList<>();
+        for (int i = 1; i <= 31; i++) {
+            time.add(Calendar.DAY_OF_MONTH,+i);
+            int des = 950 + (int) (Math.random() * 250);
+            int death = 2 + (int) (Math.random() * 6);
             total.add(des);
             int sum=total.stream().mapToInt(a->a).sum();
-            totalded.add(death);
-            int sumdead=totalded.stream().mapToInt(b->b).sum();
-            System.out.printf("%2d Ноября- Заболели:%s Умерли:%s", i, des, death+"\n");
-            System.out.printf(" Всего заболело:%s Всего умерло:%s", sum, sumdead+"\n");
+            totalDead.add(death);
+            int sumDead=totalDead.stream().mapToInt(b->b).sum();
+            System.out.printf("%s - Заболели:%s Умерли:%s",date.format(time.getTime()) , des, death+"\n");
+            System.out.printf(" Всего заболело:%s Всего умерло:%s", sum+bol, sumDead+dead+"\n");
             System.out.println(" ");
             Thread.sleep(2000);
+            time.add(Calendar.DAY_OF_MONTH,-i);
         }
     }
 }
