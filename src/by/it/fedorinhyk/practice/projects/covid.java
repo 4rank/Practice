@@ -33,12 +33,14 @@ public class covid {
                     System.out.printf("%s - Заболели:%s Умерли:%s", date.format(time.getTime()), des, death + "\n");
                     System.out.printf(" Всего заболело:%s Всего умерло:%s", sum + bol, sumDead + dead + "\n");
                     System.out.println(" ");
-                    Thread.sleep(2000);
+                    Thread.sleep(1000);
                     time.add(Calendar.DAY_OF_MONTH, -i);
                 }
             } else {
                     System.out.println("Введите целое число.");
                 }
+            }else {
+                System.out.println("Введите целое число.");
             }
         }
     }
